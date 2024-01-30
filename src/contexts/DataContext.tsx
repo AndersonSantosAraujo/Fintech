@@ -1,10 +1,14 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 import useFetch from "../Hooks/useFetch";
 
 type IDataContext = {
   data: ISale[] | null;
   loading: boolean;
   error: string | null;
+  initial: string;
+  final: string;
+  setInitial: React.Dispatch<React.SetStateAction<string>>;
+  setFinal: React.Dispatch<React.SetStateAction<string>>;
 };
 
 type ISale = {
@@ -26,13 +30,28 @@ export const useData = () => {
   return context;
 };
 
+const getNDaysAgo = (n: number) => {
+  const date = new Date();
+  date.setDate(date.getDate() - n);
+  const dd = String(date.getDate()).padStart(2, "0");
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const yyyy = date.getFullYear();
+
+  return `${yyyy}-${mm}-${dd}`;
+};
+
 export const DataContextProvider = ({ children }: React.PropsWithChildren) => {
+  const [initial, setInitial] = useState(getNDaysAgo(30));
+  const [final, setFinal] = useState(getNDaysAgo(0));
+
   const { data, loading, error } = useFetch<ISale[]>(
-    "https://data.origamid.dev/vendas/",
+    `https://data.origamid.dev/vendas/?inicio=${initial}&final=${final}`,
   );
 
   return (
-    <DataContext.Provider value={{ data, loading, error }}>
+    <DataContext.Provider
+      value={{ data, loading, error, initial, setInitial, final, setFinal }}
+    >
       {children}
     </DataContext.Provider>
   );
