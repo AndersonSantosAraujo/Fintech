@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { ISale } from "../contexts/DataContext";
 
 const linkStyle: React.CSSProperties = {
@@ -7,9 +8,9 @@ const linkStyle: React.CSSProperties = {
 const SaleItem = ({ sale: { id, nome, preco } }: { sale: ISale }) => {
   return (
     <div className="sale box">
-      <a href={id} style={linkStyle}>
+      <NavLink to={`/vendas/${id}`} style={linkStyle}>
         {id}
-      </a>
+      </NavLink>
       <div>{nome}</div>
       <div>
         {preco.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
