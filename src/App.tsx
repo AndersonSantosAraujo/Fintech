@@ -2,7 +2,8 @@ import "./Style.css";
 import Header from "./components/Header";
 import Sidenav from "./components/Sidenav";
 import { DataContextProvider } from "./contexts/DataContext";
-import Resumo from "./pages/Resumo";
+import Resume from "./pages/Resume";
+import Sales from "./pages/Sales";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
         <Sidenav />
         <main>
           <Header />
-          <Resumo />
+          <Resume />
+          <Sales />
         </main>
       </div>
     </DataContextProvider>

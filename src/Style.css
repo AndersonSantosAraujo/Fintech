@@ -1,8 +1,8 @@
 html {
-  --color-1: #463220;
-  --color-2: #66593c;
-  --color-3: #eceadd;
-  --color-4: #f7f8f5;
+  --color-1: #386641;
+  --color-2: #6a994e;
+  --color-3: #a7c957;
+  --color-4: #f0f9f0;
   --color-5: #ffffff;
   --gap-s: 0.625rem;
   --gap: 1.25rem;
@@ -12,7 +12,7 @@ body {
   font-family: sans-serif;
   margin: 0;
   color: var(--color-2);
-  background: var(--color-4);
+  background: var(--color-5);
 }
 
 .box {
@@ -80,14 +80,32 @@ ul {
   gap: var(--gap);
 }
 
-/* resumo */
-.resumo {
+/* resume */
+.resume {
   font-size: 1.5rem;
   font-weight: 600;
 }
 
-.resumo h2 {
+.resume h2 {
   font-size: 1.5rem;
   margin-bottom: var(--gap);
   color: var(--color-1);
+}
+
+/* sale */
+.sale {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: var(--gap);
+  margin-bottom: var(--gap-s);
+  align-items: center;
+}
+
+.sale div:last-child {
+  justify-self: end;
+}
+
+.sale a {
+  text-decoration: none;
+  color: inherit;
 }

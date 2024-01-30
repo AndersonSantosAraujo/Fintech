@@ -1,13 +1,13 @@
 import React from "react";
 import { useData } from "../contexts/DataContext";
 
-const Resumo = () => {
+const Resume = () => {
   const { data } = useData();
 
   if (!data) return null;
   return (
     <section>
-      <div className="resumo flex mb">
+      <div className="resume flex mb">
         <div className="box">
           <h2>Vendas</h2>
           <span>
@@ -47,9 +47,9 @@ const Resumo = () => {
           </span>
         </div>
       </div>
-      <div className="box">Gráficos</div>
+      <div className="box mb">Gráficos</div>
     </section>
   );
 };
 
-export default Resumo;
+export default Resume;
