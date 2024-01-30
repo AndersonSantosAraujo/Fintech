@@ -5,6 +5,7 @@ import config from "../assets/icons/config.svg";
 import contact from "../assets/icons/contact.svg";
 import logout from "../assets/icons/logout.svg";
 import FintechSVG from "../assets/FintechSVG";
+import { NavLink } from "react-router-dom";
 
 const Sidenav = () => {
   return (
@@ -15,13 +16,13 @@ const Sidenav = () => {
           <span>
             <img src={resume} alt="..." />
           </span>
-          <a href="#">Resumo</a>
+          <NavLink to="/">Resumo</NavLink>
         </li>
         <li>
           <span>
             <img src={sales} alt="..." />
           </span>
-          <a href="#">Vendas</a>
+          <NavLink to="/vendas">Vendas</NavLink>
         </li>
         <li>
           <span>
